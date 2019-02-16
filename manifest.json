@@ -1,0 +1,24 @@
+{
+  "name": "Copy Title and URI",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Lets you copy Title and URI of the form of markdown link",
+  "background": {
+    "scripts": ["script.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs",
+    "clipboardWrite"
+  ],
+  "commands": {
+    "copy-title-url" : {
+      "description": "Copy",
+      "suggested_key": {
+        "default": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
+      }
+    }
+  },
+  "homepage_url": "https://github.com/youxkei/copy-title-uri"
+}

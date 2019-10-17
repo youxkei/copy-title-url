@@ -1,18 +1,22 @@
 {
-  "name": "Copy Title and URI",
+  "name": "Copy Title and URL",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "Lets you copy Title and URI of the form of markdown link",
+  "description": "Lets you copy Title and URL of the form of markdown link",
   "background": {
-    "scripts": ["script.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
-  "permissions": [
-    "tabs",
-    "clipboardWrite"
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
   ],
+  "permissions": ["clipboardWrite"],
   "commands": {
-    "copy-title-url" : {
+    "copy-title-url": {
       "description": "Copy",
       "suggested_key": {
         "default": "Ctrl+Shift+C",
@@ -20,5 +24,5 @@
       }
     }
   },
-  "homepage_url": "https://github.com/youxkei/copy-title-uri"
+  "homepage_url": "https://github.com/youxkei/copy-title-url"
 }

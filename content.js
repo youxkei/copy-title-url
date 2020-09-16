@@ -1,18 +1,26 @@
 function getTitle() {
-  if (document.URL.startsWith("https://www.youtube.com/watch?v=")) {
-    return document.querySelector("#info-contents h1.title yt-formatted-string")
-      .textContent;
+  if (document.URL.startsWith("https://www.youtube.com/watch")) {
+    return (
+      document.querySelector("#info-contents h1.title yt-formatted-string")
+        .textContent + " - YouTube"
+    );
+  }
+
+  if (document.URL.startsWith("https://twitter.com/")) {
+    return document.title.replace(/^\(\d+\) /g, "");
   }
 
   return document.title;
 }
 
 function getURL() {
-  if (document.URL.startsWith("https://www.youtube.com/watch?v=")) {
+  if (document.URL.startsWith("https://www.youtube.com/watch")) {
     return document.URL.replace(/&?list=[^&]+/g, "")
       .replace(/&?index=[^&]+/g, "")
       .replace(/&?start_radio=[^&]+/g, "")
-      .replace(/&?t=[^&]+/g, "");
+      .replace(/&?t=[^&]+/g, "")
+      .replace(/&?feature=[^&]+/g, "")
+      .replace(/&?time_continue=[^&]+/g, "");
   }
 
   return document.URL;

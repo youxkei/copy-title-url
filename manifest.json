@@ -16,11 +16,18 @@
   ],
   "permissions": ["clipboardWrite"],
   "commands": {
-    "copy-title-url": {
-      "description": "Copy",
+    "copy-url": {
+      "description": "Copy URL",
       "suggested_key": {
         "default": "Ctrl+Shift+C",
         "mac": "Command+Shift+C"
+      }
+    },
+    "copy-title-url": {
+      "description": "Copy title and URL",
+      "suggested_key": {
+        "default": "Alt+C",
+        "mac": "Alt+C"
       }
     }
   },

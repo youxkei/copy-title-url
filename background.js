@@ -1,17 +1,14 @@
-chrome.commands.onCommand.addListener(() => {
+chrome.commands.onCommand.addListener((command) => {
   chrome.tabs.query(
     {
       active: true,
-      lastFocusedWindow: true
+      lastFocusedWindow: true,
     },
-    async tabs => {
-      chrome.tabs.sendMessage(
-        tabs[0].id,
-        { action: "copy_title_url" },
-        function() {
-          chrome.runtime.lastError;
-        }
-      );
+    async (tabs) => {
+      console.log(command);
+      chrome.tabs.sendMessage(tabs[0].id, { action: command }, function () {
+        chrome.runtime.lastError;
+      });
     }
   );
 });

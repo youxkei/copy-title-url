@@ -1,11 +1,10 @@
 {
   "name": "Copy Title and URL",
   "version": "1.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Lets you copy Title and URL of the form of markdown link",
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
